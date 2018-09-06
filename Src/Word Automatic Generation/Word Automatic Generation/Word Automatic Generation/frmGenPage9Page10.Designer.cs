@@ -51,6 +51,7 @@
             this.lvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvData.CheckBoxes = true;
             this.lvData.GridLines = true;
             this.lvData.Location = new System.Drawing.Point(12, 68);
             this.lvData.Name = "lvData";
@@ -61,6 +62,7 @@
             // 
             // btnGenerate
             // 
+            this.btnGenerate.Enabled = false;
             this.btnGenerate.Location = new System.Drawing.Point(855, 12);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(217, 50);

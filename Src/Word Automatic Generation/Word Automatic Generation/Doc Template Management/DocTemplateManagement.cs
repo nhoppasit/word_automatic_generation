@@ -13,6 +13,11 @@ namespace Doc_Template_Management
 {
     public class DocTemplateManagement
     {
+        public DocTemplateManagement()
+        {
+            ClearParameters();
+        }
+
         #region Processes
 
         public List<int> GetRunningProcesses()
@@ -110,7 +115,7 @@ namespace Doc_Template_Management
                         ref matchControl);
         }
 
-        private void CreateWordDocument(object filename, object savaAs)
+        public void CreateWordDocument(object filename, object savaAs)
         {
             List<int> processesbeforegen = GetRunningProcesses();
             object missing = Missing.Value;

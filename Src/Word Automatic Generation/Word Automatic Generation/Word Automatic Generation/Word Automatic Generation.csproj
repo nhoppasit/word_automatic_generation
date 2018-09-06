@@ -78,5 +78,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Doc Template Management\Doc Template Management.csproj">
+      <Project>{c4c45e49-7a95-4cd5-9920-ff0b6b1f82da}</Project>
+      <Name>Doc Template Management</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
