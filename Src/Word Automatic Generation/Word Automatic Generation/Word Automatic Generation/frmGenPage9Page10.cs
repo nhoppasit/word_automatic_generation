@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -67,9 +68,13 @@ namespace Word_Automatic_Generation
                 string Page10TemplateFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Template\Page10.doc");
                 string Dir = txtDir.Text;
 
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 int cnt = 0;
                 foreach (ListViewItem lvi in lvData.Items)
                 {
+                    sw.Reset();
+                    sw.Start();
                     if (lvi.Checked)
                     {
                         string No = lvi.Text;
@@ -94,6 +99,7 @@ namespace Word_Automatic_Generation
 
                         lvi.SubItems[4].Text = DestPage9File;
                         lvi.SubItems[5].Text = DestPage10File;
+                        lvi.SubItems[6].Text = sw.ElapsedMilliseconds.ToString();
                         lvData.Invalidate();
                     }
                     else
@@ -101,7 +107,15 @@ namespace Word_Automatic_Generation
                         cnt++;
                     }
                 }
-                if (cnt == lvData.Items.Count) MessageBox.Show("There is no selected student.", "Generate Word");
+                sw.Stop();
+                if (cnt == lvData.Items.Count)
+                {
+                    MessageBox.Show("There is no selected student.", "Generate Word");
+                }
+                else
+                {
+                    MessageBox.Show((2 * (lvData.Items.Count - cnt)).ToString() + " doc files are generated successful.", "Generate Word");
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Generate Word"); }
         }
