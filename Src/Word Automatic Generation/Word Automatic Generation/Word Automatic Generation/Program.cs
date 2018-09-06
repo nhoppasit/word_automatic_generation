@@ -15,7 +15,7 @@ namespace Word_Automatic_Generation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmGenPage9Page10());
         }
     }
 }
